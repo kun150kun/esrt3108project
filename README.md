@@ -7,6 +7,6 @@
   3.Implement GA & evolve sequence of loss functions (2 weeks)
 
   4.Evalution (1.5 weeks)
-    - baseline: single loss functions vs mix approach
-    - dataset: difficult image classification problem
+     - baseline: single loss functions vs mix approach
+     - dataset: difficult image classification problem
   5.Report (1 week)
