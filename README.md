@@ -1,7 +1,7 @@
 # PLAN
   1.Modify DNN in Tensorflow (2 weeks) 
     
-    - arbitrary grapy (1 week)
+    - arbitrary graph (1 week)
     
     - randomly generate DNNs (1 week)
 
