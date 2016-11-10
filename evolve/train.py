@@ -1,9 +1,21 @@
 import loss
 import layer
+import time
+import numpy as np
 import tensorflow as tf
 import ga1 as ga
 
-def dnn_evolve_train(dnn,m0,h,loss_sequence0,loss_fitness,generation=10)
+def can_train(x_size,i):
+    if i == 6 and x_size[0] >=5 and x_size[1]>=5:
+        return 1
+    if (i == 5 or i <= 2) and x_size[0] >=3 and x_size[1] >=3:
+        return 1
+    if (i == 3 or i == 4) and x_size[0] >=2 and x_size[1] >=2:
+        return 1
+    return 0
+
+def dnn_evolve_train(dnn,m0,h,loss_sequence0,loss_fitness,x,labels,sess=tf.Session(),generation=10):
+    batch_size = 50
     dnn_fitness = list()
     lost = list()
     index = 0

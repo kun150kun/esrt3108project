@@ -71,8 +71,10 @@ def dnn_add(dnn_population,fitness,add_num = 4,num_layer = 4):
         dnn_population.append(child)
     return dnn_population
 
-def loss_add(loss_population,fitness,add_num = 4,num_layer = 4):
+def loss_add(loss_population,fitness,add_num = 10,num_layer = 4):
+    new_loss_p = list()
     l = len(loss_population)
+    
     for i in range(add_num):
         x = loss_selection(loss_population,fitness)
         y = x
@@ -82,8 +84,15 @@ def loss_add(loss_population,fitness,add_num = 4,num_layer = 4):
         p = rd.randint(0,100)
         if p == 32:
             child = mutation(child,num_layer)
-        loss_population.append(child)
-    return loss_population
+        new_loss_p.append(child)
+    max = 0
+    maxindex = 0
+    for i in range(l):
+        if max < fitness[i][0]:
+            max = fitness[i][0]
+            maxindex = i
+    new_loss_p.append(loss_population[i])
+    return new_loss_p
 
 if __name__ == '__main__':
     dnn_population = list()
