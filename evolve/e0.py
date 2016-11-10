@@ -16,7 +16,9 @@ loss_sequence = list()
 loss_sequence = ga.initialisation(loss_sequence,10,5,5)
 
 x_image = tf.reshape(x, [-1,28,28,1])
-sess = tf.Session()
+config = tf.ConfigProto()
+config.gpu_option.allow_growth = True
+sess = tf.Session(config=config)
 
 
 for le in range(20):

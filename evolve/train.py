@@ -14,7 +14,7 @@ def can_train(x_size,i):
         return 1
     return 0
 
-def dnn_evolve_train(dnn,m0,x_image,loss_sequence0,loss_fitness,x,labels,sess=tf.Session(),generation=10):
+def dnn_evolve_train(dnn,mnist,x_image,loss_sequence0,loss_fitness,x,labels,sess,generation=10):
     batch_size = 50
     dnn_fitness = list()
     lost = list()
@@ -26,6 +26,7 @@ def dnn_evolve_train(dnn,m0,x_image,loss_sequence0,loss_fitness,x,labels,sess=tf
         for k in range(i0,dnnl):
             print("DNN%d"%k)
             print dnn[index]
+            m0 = mnist
             nottrain=0
             x_size = [28,28]
             channel = 1
