@@ -86,7 +86,7 @@ for le in range(20):
                         acc.append(train_accuracy*100)
             
                     start_time = time.time()
-                    sess.run(train_step[i/40%5],feed_dict={x: batch[0], labels: batch[1], keep_prob: 0.5})
+                    sess.run(train_step[index % 5],feed_dict={x: batch[0], labels: batch[1], keep_prob: 0.5})
                     duration += time.time() - start_time
                 variance=np.var(acc)
                 test_accuracy = sess.run(accuracy,feed_dict={
@@ -97,8 +97,8 @@ for le in range(20):
                 print dnn_fitness[index],lost[index]
                 index = index + 1
             if i != 9:
-                dnn = ga.dnn_add(dnn,lost,3)
+                dnn = ga.dnn_add(dnn,lost,3,4)
         loss_fitness.append([jj / len(dnn) for jj in np.sum(dnn_fitness,axis = 0)])
         print("loss_fitness",loss_fitness[lstep])
     if le != 20:
-        loss_sequence = ga.loss_add(loss_sequence,loss_fitness,3)
+        loss_sequence = ga.loss_add(loss_sequence,loss_fitness,3,6)

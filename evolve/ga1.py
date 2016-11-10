@@ -32,11 +32,11 @@ def loss_selection(loss_population,lost):
             break
     return i
 
-def mutation(dnn):
+def mutation(dnn,num_layer):
     l = len(dnn)
     pos = rd.randint(0,l-1)
     while(1):
-        s = rd.randint(1,6)
+        s = rd.randint(1,num_layer)
         if(s != dnn[pos]):
             dnn[pos] = s
             break
@@ -55,7 +55,7 @@ def initialisation(dnn_population,num = 10,len = 5,num_layer = 6):
         dnn_population.append(k)
     return dnn_population
 
-def dnn_add(dnn_population,fitness,add_num = 4):
+def dnn_add(dnn_population,fitness,add_num = 4,num_layer):
     l = len(dnn_population)
     if l < 2:
         initialisation(dnn_population,10-l)
@@ -67,11 +67,11 @@ def dnn_add(dnn_population,fitness,add_num = 4):
         child = reproduce(dnn_population[x],dnn_population[y])
         p = rd.randint(0,100)
         if p == 32:
-            child = mutation(child)
+            child = mutation(child,num_layer)
         dnn_population.append(child)
     return dnn_population
 
-def loss_add(loss_population,fitness,add_num = 4):
+def loss_add(loss_population,fitness,add_num = 4,num_layer):
     l = len(loss_population)
     for i in range(add_num):
         x = loss_selection(loss_population,fitness)
@@ -81,7 +81,7 @@ def loss_add(loss_population,fitness,add_num = 4):
         child = reproduce(loss_population[x],loss_population[y])
         p = rd.randint(0,100)
         if p == 32:
-            child = mutation(child)
+            child = mutation(child,num_layer)
         loss_population.append(child)
     return loss_population
 
