@@ -57,5 +57,4 @@ def r_square(logits,labels):
     loss = tf.truediv(res,tot)
     return loss
 
-loss_f={2:loss2, 3:loss3, 4:loss4, 5:loss5,
-    6:mean_squared_error,1:hellinger_dis}
+loss_f={1:loss2, 2:loss3, 3:loss4,4:mean_squared_error,5:hellinger_dis}

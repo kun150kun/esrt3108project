@@ -55,7 +55,7 @@ def initialisation(dnn_population,num = 10,len = 5,num_layer = 6):
         dnn_population.append(k)
     return dnn_population
 
-def dnn_add(dnn_population,fitness,add_num = 4,num_layer):
+def dnn_add(dnn_population,fitness,add_num = 4,num_layer = 4):
     l = len(dnn_population)
     if l < 2:
         initialisation(dnn_population,10-l)
@@ -71,7 +71,7 @@ def dnn_add(dnn_population,fitness,add_num = 4,num_layer):
         dnn_population.append(child)
     return dnn_population
 
-def loss_add(loss_population,fitness,add_num = 4,num_layer):
+def loss_add(loss_population,fitness,add_num = 4,num_layer = 4):
     l = len(loss_population)
     for i in range(add_num):
         x = loss_selection(loss_population,fitness)

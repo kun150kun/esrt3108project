@@ -24,7 +24,7 @@ labels = tf.placeholder(tf.float32, shape=[None,10])
 
 dnn = list()
 loss_sequence = list()
-loss_sequence = ga.initialisation(loss_sequence,10,5,6)
+loss_sequence = ga.initialisation(loss_sequence,10,5,5)
 
 x_image = tf.reshape(x, [-1,28,28,1])
 sess = tf.Session()
@@ -66,7 +66,7 @@ for le in range(20):
                 keep_prob = tf.placeholder(tf.float32)
                 logits,num_parameter = layer.output(h,x_size,channel,keep_prob,num_parameter)
                 lll=list()
-                for j in range(6):
+                for j in range(5):
                     lll.append(tf.reduce_mean(loss.loss_f[j+1](logits,labels)))
                 correct_prediction = tf.equal(tf.argmax(logits,1), tf.argmax(labels,1))
                 train_step=list()
