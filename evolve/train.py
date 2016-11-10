@@ -14,11 +14,12 @@ def can_train(x_size,i):
         return 1
     return 0
 
-def dnn_evolve_train(dnn,m0,h,loss_sequence0,loss_fitness,x,labels,sess=tf.Session(),generation=10):
+def dnn_evolve_train(dnn,m0,x_image,loss_sequence0,loss_fitness,x,labels,sess=tf.Session(),generation=10):
     batch_size = 50
     dnn_fitness = list()
     lost = list()
     index = 0
+    
     for i in range(generation):
         dnnl = len(dnn)
         i0 = index
@@ -29,6 +30,7 @@ def dnn_evolve_train(dnn,m0,h,loss_sequence0,loss_fitness,x,labels,sess=tf.Sessi
             x_size = [28,28]
             channel = 1
             num_parameter = 0
+            h = x_image
             for j in dnn[k]:
                 if can_train(x_size,j) == 1:
                     h,x_size,channel,num_parameter = layer.layer_f[j](h,channel,x_size,num_parameter)
