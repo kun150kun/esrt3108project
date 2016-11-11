@@ -17,7 +17,7 @@ loss_sequence = ga.initialisation(loss_sequence,10,5,5)
 
 x_image = tf.reshape(x, [-1,28,28,1])
 config = tf.ConfigProto()
-config.gpu_option.allow_growth = True
+config.gpu_options.allow_growth = True
 sess = tf.Session(config=config)
 
 
