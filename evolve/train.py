@@ -56,7 +56,7 @@ def dnn_evolve_train(dnn,mnist,x_image,loss_sequence0,loss_fitness,x,labels,sess
             duration = 0
             acc=list()
             
-            for j in range(201):
+            for j in range(1001):
                 batch = m0.train.next_batch(batch_size)
                 if j%100 == 0:
                     train_accuracy = sess.run(accuracy,feed_dict={
